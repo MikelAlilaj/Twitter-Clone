@@ -1,9 +1,9 @@
+
 <?php
 
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
 
 class FollowsController extends Controller
 {
@@ -12,6 +12,7 @@ class FollowsController extends Controller
         auth()
             ->user()
             ->toggleFollow($user);
+
         return back();
     }
 }

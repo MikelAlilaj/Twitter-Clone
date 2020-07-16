@@ -1,49 +1,38 @@
 <ul>
-     <li><a
+    <li>
+        <a
             class="font-bold text-lg mb-4 block"
-            href="{{route('home')}}"
+            href="{{ route('home') }}"
         >
-             Home
-         </a>
-     </li>
+            Home
+        </a>
+    </li>
 
-     <li><a
+    <li>
+        <a
             class="font-bold text-lg mb-4 block"
-            href="/"
-        >explore</a></li>
-
-     <li><a
-            class="font-bold text-lg mb-4 block"
-            href="/"
-        >Notification</a></li>
-
-     <li><a
-            class="font-bold text-lg mb-4 block"
-            href="/"
-        >Messages</a></li>
-
-     <li><a
-            class="font-bold text-lg mb-4 block"
-            href="/"
-        >Bookmarks</a></li>
-
-     <li><a
-            class="font-bold text-lg mb-4 block"
-            href="/"
-        >Lists</a></li>
-
-     <li><a
-            class="font-bold text-lg mb-4 block"
-            href="{{route('profile',auth()->user())}}"
+            href="/explore"
         >
-             Profile
-         </a>
-     </li>
+            Explore
+        </a>
+    </li>
 
-     <li><a
-            class="font-bold text-lg mb-4 block"
-            href="/"
-        >More</a></li>
+    @auth
+        <li>
+            <a
+                class="font-bold text-lg mb-4 block"
+                href="{{ current_user()->path() }}"
+            >
+                Profile
+            </a>
+        </li>
 
+        <li>
+            <form method="POST" action="/logout">
+                @csrf
 
+                <button class="font-bold text-lg">Logout</button>
+            </form>
+        </li>
+    @endauth
 </ul>
